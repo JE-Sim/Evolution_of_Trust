@@ -36,3 +36,14 @@ Av
 A
 D
 Cc
+
+#stationary matrix
+library(expm)
+A %^% 100
+
+Av %^% 100
+
+D %^% 100
+
+Cc %^% 100
+
