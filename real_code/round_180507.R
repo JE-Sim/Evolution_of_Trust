@@ -1,5 +1,5 @@
 #right round code.
-game2 <- function(n, me.0, you.0, error=0){
+game <- function(n, me.0, you.0, error=0){
   cond1 <- "C"; cond2 <- "C"; i <- 0
   last.me <- "C"; last.you <- "C"; memory.me <- "C"; memory.you <- "C"
   
