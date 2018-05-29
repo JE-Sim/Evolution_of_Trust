@@ -1,4 +1,4 @@
-setwd("C:/Users/Á¤Àº/Desktop/Evolution_of_Trust/real_code")
+setwd("direction address")
 source("scoreBoard_strategy.R")
 unknownOpp <- function(n=NULL, nA=NULL, nD=NULL, nCc=NULL, nAv=NULL, error=NULL){
   if(is.null(n)) n <- as.integer(readline("how many rounds : "))
