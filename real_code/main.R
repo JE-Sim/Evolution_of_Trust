@@ -1,0 +1,6 @@
+setwd("directional address")
+source("evolution_180508.R")
+source("monte_carlo_simulation_180529.R")
+source("round_180507.R")
+source("scoreBoard_strategy.R")
+source("transition_matrix_180509.R")
