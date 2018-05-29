@@ -5,7 +5,7 @@ evolution <- function(A=8, D=8, Cc=8, Av=6, round=5, iter = 20, error = 0){
     b <- rep(0, length(match)); names(b) <- match
     for(i in 1:ncol(league)){
       first <- match[league[1,i]]; second <- match[league[2,i]]
-      result.1 <- game2(5, first, second, error)
+      result.1 <- game(5, first, second, error)
       b[league[,i][1]] <- b[league[,i][1]]+result.1[[2]][1]
       b[league[,i][2]] <- b[league[,i][2]]+result.1[[2]][2]
     }
