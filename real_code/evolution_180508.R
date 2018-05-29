@@ -1,5 +1,4 @@
-#league match / not monte carlo
-evolution <- function(A=8, D=8, Cc=8, Av=6, iter = 20, error = 0){
+evolution <- function(A=8, D=8, Cc=8, Av=6, round=5, iter = 20, error = 0){
   match <- rep(c('A', 'D', 'Cc', 'Av'), c(A, D, Cc, Av))
   league <- combn(1:length(match), 2); Vis <- list(); s <- list()
   for(j in 1:iter){
@@ -13,7 +12,7 @@ evolution <- function(A=8, D=8, Cc=8, Av=6, iter = 20, error = 0){
     s[[j]] <- b
     if(length(unique(s[[j]]))==1) break
     c <- sample(b); d <- sort(c)
-    match <- c(rev(d)[1:5], d[-c(1:5)])
+    match <- c(rev(d)[1:round], d[-c(1:round)])
     match <- names(match)
     Vis[[j]] <- sort(match)
   }
