@@ -1,3 +1,4 @@
+source("round_180507.R")
 evolution <- function(A=8, D=8, Cc=8, Av=8, round=5, out=5, iter = 20, error = 0){
   match <- rep(c('A', 'D', 'Cc', 'Av'), c(A, D, Cc, Av))
   league <- combn(1:length(match), 2); Vis <- list(); s <- list()
