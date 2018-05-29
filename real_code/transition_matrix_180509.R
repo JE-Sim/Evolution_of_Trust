@@ -32,18 +32,11 @@ Av <- Pm("Av", 5, 5, 5, 5)
 A <- Pm("A", 5, 5, 5, 5)
 D <- Pm("D", 5, 5, 5, 5)
 Cc <- Pm("Cc", 5, 5, 5, 5)
-Av
-A
-D
-Cc
 
 #stationary matrix
 library(expm)
-A %^% 100
-
-Av %^% 100
-
-D %^% 100
-
-Cc %^% 100
+A.s <- A %^% 100
+Av.s <- Av %^% 100
+D.s <- D %^% 100
+Cc.s <- Cc %^% 100
 
