@@ -3,7 +3,7 @@ Pm <- function(type, nA, nD, nCc, nAv, error=0){
   pCc <- nCc/sum(c(nA, nD, nCc, nAv)); pAv <- nAv/sum(c(nA, nD, nCc, nAv))
   pp <- (1-error)^2; pq <- error*(1-error); qq <- error^2
   P <- matrix(0, ncol=7, nrow=7)
-  rownames(P) <- colnames(P) <- c("start", 1, 2, 1.1, 2.2, 3.1, 4.1)
+  rownames(P) <- colnames(P) <- c("start", 1, 2, 1.1, 2.1, 3.1, 4.1)
   P1 <- matrix(c(pq, pp, qq, pq), nrow=2); P2 <- matrix(c(pp, pq, pq, qq), nrow=2)
   Q1 <- matrix(c(1-pD, pD, pD, 1-pD), nrow=2); Q2 <- matrix(c(pA+pCc, pD+pAv, pD+pAv, pA+pCc), nrow=2)
   Q3 <- matrix(c(pA, 1-pA, 1-pA, pA), nrow=2)
@@ -28,15 +28,35 @@ Pm <- function(type, nA, nD, nCc, nAv, error=0){
   return(P[c(1, which(colSums(P) != 0)), c(1, which(colSums(P) != 0))])
 }
 # [c(1, which(colSums(P) != 0)), c(1, which(colSums(P) != 0))]
-Av <- Pm("Av", 5, 5, 5, 5)
-A <- Pm("A", 5, 5, 5, 5)
-D <- Pm("D", 5, 5, 5, 5)
-Cc <- Pm("Cc", 5, 5, 5, 5)
 
 #stationary matrix
-library(expm)
-A.s <- A %^% 100
-Av.s <- Av %^% 100
-D.s <- D %^% 100
-Cc.s <- Cc %^% 100
+stationary <- function(P){
+  p.i <- P-diag(nrow(P))
+  p.i[,nrow(P)] <- 1
+  v <- c(rep(0, nrow(P)-1), 1)
+  pi <- v%*%solve(p.i)
+  return(pi)
+}
 
+
+'''
+library(expm)
+Av.p <- Pm("Av", 5, 5, 5, 5)
+A.p <- Pm("A", 5, 5, 5, 5)
+D.p <- Pm("D", 5, 5, 5, 5)
+Cc.p <- Pm("Cc", 5, 5, 5, 5)
+
+A.s <- A.p %^% 100
+Av.s <- Av.p %^% 100
+D.s <- D.p %^% 100
+Cc.s <- Cc.p %^% 100
+
+A.s
+stationary(A)
+Av.s
+stationary(Av)
+D.s
+stationary(D)
+Cc.s
+stationary(Cc)
+'''
