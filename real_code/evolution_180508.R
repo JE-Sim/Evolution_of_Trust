@@ -1,4 +1,3 @@
-source("round_180507.R")
 evolution <- function(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error = 0, rep=500){
   match <- rep(c('A', 'D', 'Cc', 'Av'), c(A, D, Cc, Av))
   x <- y<- 1: length(match)
@@ -21,7 +20,7 @@ evolution <- function(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error
     Vis[[j]] <- sort(match)
   }
   return(Vis)
-  #  return(s)
+#  return(s)
 }
 
 ev.plot <- function(A=8, D=8, Cc=8, Av=8, round=5, out=5, iter = 20, error = 0){
