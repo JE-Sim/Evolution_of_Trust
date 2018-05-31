@@ -22,7 +22,6 @@ evolution <- function(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error
   return(Vis)
 # return(s)
 }
-
 ev.plot <- function(A=8, D=8, Cc=8, Av=8, round=5, out=5, iter = 20, error = 0){
   k <- evolution(A, D, Cc, Av, round, out, iter, error)
   tab <- matrix(0, length(k), 4)
@@ -34,6 +33,7 @@ ev.plot <- function(A=8, D=8, Cc=8, Av=8, round=5, out=5, iter = 20, error = 0){
     tab[i,4] <- length(which(k[[i]]=="Av"))
   }
   rownames(tab) <- paste("trial", 1:length(k))
+  par(las=2)
   print(barplot(t(apply(tab, 2, rev)), horiz=TRUE, space=rep(0, length(k)), main="Who will win in the long run?", xlab="# of each character", ylab="trial", col=c("red", "yellow", "green", "blue")))
   print(legend("topright", legend=c("Angel", "Devil", "Copycat", "Avengers"), fill=c("red", "yellow", "green", "blue"), bg="gray"))
 }
