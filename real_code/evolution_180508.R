@@ -1,16 +1,16 @@
-evolution <- function(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error = 0, rep=500){
+evolution <- function(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error = 0){
   match <- rep(c('A', 'D', 'Cc', 'Av'), c(A, D, Cc, Av))
-  x <- y<- 1: length(match)
+  x <- y <- 1:length(match)
   d1 <- expand.grid(x=x, y=y); league <- d1[d1[,1]<d1[,2],]
   k <- 1; Vis <- list(); s <- list()
   
   for(j in 1:iter){
     b <- rep(0, length(match)); names(b) <- match
-    for(i in 1:ncol(league)){
-      first <- match[league[1,i]]; second <- match[league[2,i]]
+    for(i in 1:nrow(league)){
+      first <- match[league$x[i]]; second <- match[league$y[i]]
       result.1 <- game(round, first, second, error)
-      b[league[1,i]] <- b[league[1,i]]+result.1[[2]][1]
-      b[league[2,i]] <- b[league[2,i]]+result.1[[2]][2]
+      b[league$x[i]] <- b[league$x[i]]+result.1[[2]][1]
+      b[league$y[i]] <- b[league$y[i]]+result.1[[2]][2]
     }
     s[[j]] <- b
     if(length(unique(s[[j]]))==1) break
@@ -20,7 +20,7 @@ evolution <- function(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error
     Vis[[j]] <- sort(match)
   }
   return(Vis)
-#  return(s)
+# return(s)
 }
 
 ev.plot <- function(A=8, D=8, Cc=8, Av=8, round=5, out=5, iter = 20, error = 0){
