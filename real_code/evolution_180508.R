@@ -35,9 +35,9 @@ ev.plot <- function(A=8, D=15, Cc=8, Av=8, round=5, out=5, iter = 30, error = 0)
   rownames(tab) <- paste("trial", 1:length(k))
   par(las=2); par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=T)
   print(barplot(t(apply(tab, 2, rev)), horiz=TRUE, space=rep(0, length(k)), main="Who will win in the long run?", xlim = c(0, length(k[[1]])),
-                xlab="# of each character", ylab="", col=c("tomato", "gold", "mediumaquamarine", "slateblue2")))
+                xlab="# of each character", ylab="", col=c("tomato", "gold", "mediumaquamarine", "mediumpurple1")))
   print(legend("topright", inset = c(-0.35, 0.1), box.lty = 0, bty != "n", title = "Strategy",
-               legend=c("Angel", "Devil", "Copycat", "Avengers"), fill=c("tomato", "gold", "mediumaquamarine", "slateblue2"), bg=c("gray87")))
+               legend=c("Angel", "Devil", "Copycat", "Avengers"), fill=c("tomato", "gold", "mediumaquamarine", "mediumpurple1"), bg=c("gray87")))
   print(legend("top", inset = c(0, -0.12), legend=paste("mistake probability = ", error), bty ="n", pch=NA))
 }
-ev.plot(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error = 0.05)
+ev.plot(A=5, D=5, Cc=5, Av=5, round=5, out=5, iter = 20, error = 0.05)
