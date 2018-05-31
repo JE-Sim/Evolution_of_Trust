@@ -50,11 +50,11 @@ stationary <- function(P){
 # D.s <- D.p %^% 100
 # Cc.s <- Cc.p %^% 100
 # 
-# A.s
-# stationary(A)
+ 
+# stationary(A.p)
 # Av.s
-# stationary(Av)
+# stationary(Av.p)
 # D.s
-# stationary(D)
+# stationary(D.p)
 # Cc.s
-# stationary(Cc)
+# stationary(Cc.p)
