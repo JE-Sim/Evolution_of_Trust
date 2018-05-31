@@ -39,24 +39,22 @@ stationary <- function(P){
 }
 
 
-'''
-library(expm)
-Av.p <- Pm("Av", 5, 5, 5, 5)
-A.p <- Pm("A", 5, 5, 5, 5)
-D.p <- Pm("D", 5, 5, 5, 5)
-Cc.p <- Pm("Cc", 5, 5, 5, 5)
-
-A.s <- A.p %^% 100
-Av.s <- Av.p %^% 100
-D.s <- D.p %^% 100
-Cc.s <- Cc.p %^% 100
-
-A.s
-stationary(A)
-Av.s
-stationary(Av)
-D.s
-stationary(D)
-Cc.s
-stationary(Cc)
-'''
+# library(expm)
+# Av.p <- Pm("Av", 5, 5, 5, 5)
+# A.p <- Pm("A", 5, 5, 5, 5)
+# D.p <- Pm("D", 5, 5, 5, 5)
+# Cc.p <- Pm("Cc", 5, 5, 5, 5)
+# 
+# A.s <- A.p %^% 100
+# Av.s <- Av.p %^% 100
+# D.s <- D.p %^% 100
+# Cc.s <- Cc.p %^% 100
+# 
+# A.s
+# stationary(A)
+# Av.s
+# stationary(Av)
+# D.s
+# stationary(D)
+# Cc.s
+# stationary(Cc)
