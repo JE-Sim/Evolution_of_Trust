@@ -39,3 +39,29 @@ R로써 구현한 상황은 다음과 같다 :
 
 http://ncase.me/trust//
 
+#### 3. 함수 설명.
+> real_code (Folder)
+1. UnknownOpponent.R
+   실제로 R로 이 게임을 해볼수 있도록 하는 코드이다.
+2. scoreBoard_strategy.R
+   score : 각 상황 별로 자신과 상대가 갖는 점수를 저장한 data.frame.
+   D, A, Cc, Av : 각 전략의 선택을 구현하는 함수.
+3. round_180507.R
+   game : 자신과 상대의 전략을 지정하여 n번의 라운드를 진행한 결과를 도출하는 함수.
+4. evolution_180508.R
+   evolution : 각 전략을 가진 상대방의 수, 한 게임 당 라운드, 진화 과정시 제외되는 인원의 수, 실수 확률을 지정하여 각 전략의 기대 점수가 수렴할 때 까지의 과정을 리스트로 반환하는 함수.
+   ev.plot : evolution 함수의 결과를 받아서 각 진화과정 별로 변화하는 전략 인원 수를 plot으로 보여주는 함수.
+5. transition_matrix_180509.R
+   Pm : 본인의 전략, 각 전략별 인원수, 실수 확률을 지정하여 Transition Matrix를 생성하는 함수.
+   stationary : Transition Matrix의 stationary distribution을 도출하는 함수.
+6. monte_carlo_simulation_180529.R
+   simul : 본인의 전략, 각 전략별 인원수, 실수 확률, 라운드 별 게임 횟수, 반복수, 실수 확률을 지정하여 Pm으로 만들어지는 Transition Matrix를 통하여 시뮬레이션을 하는 함수.
+   stat.simul : stationary distribution을 활용하여 시뮬레이션을 하는 함수.
+7. transMat_in_Nature.R
+   Pm.nat : 상대가 전략 없이 단순한 확률을 통해서 협력, 배신을 선택할 때의 Transition Matrix를 생성하는 함수.
+   nat.simul : Pm.nat에서 생성된 Transition Matrix 토대로 시뮬레이션을 하는 함수.
+8. main.R
+   위의 모든 함수가 통합되어 있다.
+   
+   
+
