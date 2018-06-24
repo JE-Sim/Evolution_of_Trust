@@ -19,11 +19,10 @@ evolution <- function(A=10, D=10, Cc=10, Av=10, round=5, out=5, iter = 20, error
     Vis[[j]] <- sort(match)
   }
   return(Vis)
-  #  return(s)
+  # return(s)
 }
 ev.plot <- function(A, D, Cc, Av, round=5, out=5, iter = 30, error = 0){
   k <- evolution(A, D, Cc, Av, round, out, iter, error)
-  #k <- evolution(A=8, D=15, Cc=8, Av=8, round=5, out=5, iter = 30, error = 0)
   tab <- matrix(0, length(k), 4)
   colnames(tab) <- c("A", "D", "Cc", "Av")
   for (i in 1:length(k)){
@@ -40,4 +39,3 @@ ev.plot <- function(A, D, Cc, Av, round=5, out=5, iter = 30, error = 0){
                legend=c("Angel", "Devil", "Copycat", "Avengers"), fill=c("tomato", "gold", "mediumaquamarine", "mediumpurple1"), bg=c("gray87")))
   print(legend("top", inset = c(0, -0.12), legend=paste("mistake probability = ", error), bty ="n", pch=NA))
 }
-ev.plot(8, 15, 8, 8, round=5, out=5, iter = 20, error = 0.05)

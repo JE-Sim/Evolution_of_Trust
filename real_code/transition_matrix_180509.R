@@ -48,7 +48,6 @@ Pm <- function(type, nA, nD, nCc, nAv, error=0){
   if(type=="Av" & error==0) return(P[c(1:3, 10, 11), c(1:3, 10, 11)])
   return(P[c(1, which(colSums(P) != 0)), c(1, which(colSums(P) != 0))])
 }
-# [c(1, which(colSums(P) != 0)), c(1, which(colSums(P) != 0))]
 
 #stationary matrix
 stationary <- function(P){
@@ -58,25 +57,3 @@ stationary <- function(P){
   pi <- v%*%solve(p.i)
   return(pi)
 }
-
-
-# library(expm)
-# Av.p <- Pm("Av", 5, 5, 5, 5)
-# A.p <- Pm("A", 5, 5, 5, 5)
-# D.p <- Pm("D", 5, 5, 5, 5)
-# Cc.p <- Pm("Cc", 5, 5, 5, 5)
-# 
-# A.s <- A.p %^% 100
-# Av.s <- Av.p %^% 100
-# D.s <- D.p %^% 100
-# Cc.s <- Cc.p %^% 100
-# 
- 
-# stationary(A.p)
-# Av.s
-# stationary(Av.p)
-# Av.s
-# stationary(D.p)
-# D.s
-# stationary(Cc.p)
-# C.s

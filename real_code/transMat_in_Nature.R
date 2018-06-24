@@ -19,10 +19,6 @@ Pm.nat <- function(type, pb=0.5, error=0){
   }
   return(t(mat[c(1, which(rowSums(mat)!=0)), c(1, which(rowSums(mat)!=0))]))
 }
-#Pm.nat("A", 0.5)
-#Pm.nat("D", 0.5)
-#Pm.nat("Cc", 0.5)
-#Pm.nat("Av", 0.5)
 
 #pb : probability of opponent's betray
 nat.simul <- function(type, nround, pb=0.5, nsim = 1e+5, error=0){
@@ -40,8 +36,3 @@ nat.simul <- function(type, nround, pb=0.5, nsim = 1e+5, error=0){
   } 
   return(list(distribution=table(x)/length(x), mean=mean(x)))
 }
-#pb=0.3, 0.5, 0.7
-#nat.simul("A", 5, pb=0.7)
-#nat.simul("D", 5, pb=0.7)
-#nat.simul("Av", 5, pb=0.7)
-#nat.simul("Cc", 5, pb=0.7)

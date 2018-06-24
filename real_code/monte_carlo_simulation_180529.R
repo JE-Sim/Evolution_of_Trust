@@ -14,10 +14,6 @@ simul <- function(type, nA, nD, nCc, nAv, nround, nsim = 1e+5, error=0){
   } 
   return(list(table(x)/length(x), mean(x)))
 }
-#simul("Av", 5, 5, 5, 5, 5)
-#simul("A", 5, 5, 5, 5, 5)
-#simul("D", 5, 5, 5, 5, 5)
-#simul("Cc", 5, 5, 5, 5, 5)
 
 stat.simul <- function(type, nA, nD, nCc, nAv, nround, nsim = 1e+5, error=0){
   mat.0 <- Pm(type, nA, nD, nCc, nAv, error)
@@ -31,8 +27,3 @@ stat.simul <- function(type, nA, nD, nCc, nAv, nround, nsim = 1e+5, error=0){
   } 
   return(list(table(x)/length(x), mean(x)))
 }
-
-#stat.simul("Av", 5, 5, 5, 5, 5)
-#stat.simul("A", 5, 5, 5, 5, 5)
-#stat.simul("D", 5, 5, 5, 5, 5)
-#stat.simul("Cc", 5, 5, 5, 5, 5)
