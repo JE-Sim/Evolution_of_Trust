@@ -32,6 +32,11 @@ unknownOpp <- function(n=NULL, nA=NULL, nD=NULL, nCc=NULL, nAv=NULL, error=NULL)
   while(i < n){
     me.1 <- readline("choose your decision 'C'(Contribution) / 'B'(Betray) : ")
     while(!(me.1 %in% c("C", "B"))) me.1 <- readline("Please choose your decision 'C'(Contribution) / 'B'(Betray) : ")
+    mistake <- sample(c(T,F), 1, prob=c(error, 1-error))
+    if(mistake) {
+      print("Oops! You mistake.")
+      me.1 <- ifelse(me.1 == "C", "B", "C")
+    }
     you.1 <- you.f(cond, error)
     result <- cbind(result, score[paste(me.1, you.1, sep=".")])
     if(you.1 == "B") memory.me <- "B"; if(me.1 == "B") memory.you <- "B"
@@ -41,8 +46,11 @@ unknownOpp <- function(n=NULL, nA=NULL, nD=NULL, nCc=NULL, nAv=NULL, error=NULL)
     i <- i+1
   }
   total <- rowSums(result[-1])
-  result1 <- ifelse(total[1] > total[2], "Win!", "Lose.")
-  print(paste(paste("You", result1), paste("Your Opponents was", you)))
+  result1 <- ifelse(total[1] > total[2], "Win!", ifelse(total[1] == total[2], "draw.", "Lose."))
+  print(paste(paste(total[1], total[2], sep=":"), paste("You", result1), sep = ". "))
+  guess <- readline("Guess who is your opponent?\nChoose 'A'(angel), 'D'(Devil), 'Cc'(Copycat), 'Av'(Avenger) : ")
+  ans <- ifelse(guess == you.0, "Right!", "Nope!")
+  print(paste(paste(ans, paste("Your Opponents was", you.0)), ".", sep=""))
   return(cbind(result[-1], total=total))
 }
 
